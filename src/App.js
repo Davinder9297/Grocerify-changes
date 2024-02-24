@@ -38,8 +38,9 @@ function App() {
         let url = BASE_URL_PRODUCTS+`api/getcart?mobile=${userDetail?.mobile}`
         const data = await fetch(url)
         const response = await data.json()
-        console.log(response.cart[0])
+        // console.log(response.cart[0])
         setCartData(response?.cart || [])
+        
       } catch (error) {
         console.log(error)
       }
@@ -62,13 +63,13 @@ function App() {
   const getUserDetails = async () => {
     // console.log(localStorage.getItem('GROC_USER_TOKEN'))
     const token = localStorage.getItem('GROC_USER_TOKEN')
-    console.log(token)
+    // console.log(token)
     if (token) {
       const decoded = jwtDecode(token);
       // console.log(decoded.email)
       try {
         const res = await axios.get(`${BASE_URL_PRODUCTS}api/user?email=${decoded.email}`)
-        console.log(res.data.data)
+        // console.log(res.data.data)
         setUserDetail(res.data.data)
 
       } catch (error) {

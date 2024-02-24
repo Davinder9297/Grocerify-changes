@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { Globalinfo } from '../../App';
 import Spinner from '../Spinner';
 import { Link } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 export default function Addtocart() {
 
     const [Data, setData] = useState([])
@@ -19,25 +20,25 @@ export default function Addtocart() {
     const [total, settotal] = useState()
     const [deliverycharges, setdeliverycharges] = useState()
     const [show, setshow] = useState(false)
+    const [orderData, setorderData] = useState([])
+    // const [final, setfinal] = useState([])
     const { cartData, GetCart, wishListData, GetWishList, userDetail, getUserDetails } = useContext(Globalinfo)
-    // console.log(Cntxt)
-    useEffect(() => {
-        OrderSummery()
-    }, [])
-
-
-
-    console.log(cartData)
+    // console.log(cartData)
+   let token=localStorage.getItem('GROC_USER_TOKEN');
+   let decode=jwtDecode(token)
     async function OrderSummery() {
 
         try {
-            const final = cartData;
+            let url = BASE_URL_PRODUCTS+`api/getcart?mobile=${decode.mobile}`
+            const data = await fetch(url)
+            const response = await data.json()
+            let final =response.cart;
             let subttotal_amount = 0
             let total_items = 0
 
-            final?.forEach((item) => {
-                if (item?.product) {
-
+            final.forEach((item) => {
+                if (item.product) {
+// console.log(item)
                     let price = item.product.variants1_mrp_price - (item.product.variants1_mrp_price * (item.product["variants1_discount%"] / 100))
 
                     subttotal_amount += price * item.quantity;
@@ -55,6 +56,14 @@ export default function Addtocart() {
 
         // console.log(subttotal_amount,total_items)
     }
+    useEffect(() => {
+        OrderSummery()
+    }, [])
+
+
+
+    // console.log(cartData)
+ 
 
 
 
@@ -72,9 +81,10 @@ export default function Addtocart() {
         });
         const response = await data2.json()
 
-        OrderSummery()
         setData(response.data)
         GetCart()
+        OrderSummery()
+
         setshow(false)
 
         // console.log(response)
@@ -94,8 +104,8 @@ export default function Addtocart() {
         });
         const response = await data2.json()
         setData(response.data)
-        OrderSummery()
         GetCart()
+        OrderSummery()
         setshow(false)
 
         // console.log(response)
@@ -170,7 +180,7 @@ export default function Addtocart() {
                     </div>
                     <div className='flex justify-between fontorder'>
                         <div>Total items</div>
-                        <div>₹{totalitems}</div>
+                        <div>{totalitems}</div>
                     </div>
                     {/* <div className='flex justify-between fontorder'>
                         <div>Tax</div>
