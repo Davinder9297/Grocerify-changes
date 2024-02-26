@@ -349,7 +349,7 @@ const [store, setstore] = useState([])
                                 <div className='text-[10px]'>20%</div>
                                 <div className='text-[8px]'>off</div>
                             </div>
-                            <img className='max-h-52 max-w-32' src={item.shopImage} />
+                            <img className='max-h-52 max-w-32' src={item.product_primary_image_url} />
 
                         </div>
                         <div className='flex flex-col w-full fontmont text-[#848484]'>
