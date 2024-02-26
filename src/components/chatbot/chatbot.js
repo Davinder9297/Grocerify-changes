@@ -125,7 +125,7 @@ const ChatBot = () => {
     }, []);
 
     return (
-        <div style={{ border: "3px solid red" }}>
+        <div >
             <div>
                 <button className="chatbot-toggler">
                     <span className="material-symbols-rounded pt-2">

@@ -15,9 +15,9 @@ export default function Footer() {
         <div className="h-fit w-full  bg-[#333333] text-white  pt-10 font ">
             <div className='flex justify-between mx-[5vw]'>
                 <div className='w-45'><img src='/logo.png' /></div>
-                <a href={"whatsapp://send?phone=1234567890&text=Hello%2C%20I%20would%20like%20to%20chat"}>
+                <Link to={"whatsapp://send?phone=1234567890&text=Hello%2C%20I%20would%20like%20to%20chat"}>
                     <img src={WhatsappFooter} alt="..." className='w-40 mr-10' />
-                </a>
+                </Link>
             </div>
 
             <div className='flex justify-between py-[3vh] mx-[5vw]'>
@@ -54,42 +54,42 @@ export default function Footer() {
                 </div>
 
                 <div className=" text-[#FFFFFF] flex flex-col  space-y-4 ">
-                    <a className='font' href={'/about'}>About Us</a>
-                    <a className='font' href={'/contact_us'}>Contact Us</a>
-                    <a className='font' href='/about#teams'>Our Team</a>
+                    <Link className='font' to={'/about'}>About Us</Link>
+                    <Link className='font' to={'/contact_us'}>Contact Us</Link>
+                    <Link className='font' to='/about#teams'>Our Team</Link>
 
                 </div>
 
                 <div className="text-[#FFFFFF] flex flex-col  space-y-4">
-                    <a href={'/products?category=Electronics'}> Electronics</a>
-                    <a className='font' href={'/products?category=Grocery'}> Groceries</a>
-                    <a className='font' href={'/products?category=Health and Beauty'}> Health & Beauty</a>
-                    <a className='font' href={'/products?category=dairy'}> Dairy </a>
-                    <a className='font' href={'/products?category=frozen'}>  Frozen</a>
-                    <a className='font' href={'/products?category=poultary'}>  Poultary</a>
-                    <a className='font' href={'/stores'}> Stores</a>
+                    <Link to={'/products?category=Electronics'}> Electronics</Link>
+                    <Link className='font' to={'/products?category=Grocery'}> Groceries</Link>
+                    <Link className='font' to={'/products?category=Health and Beauty'}> Health & Beauty</Link>
+                    <Link className='font' to={'/products?category=dairy'}> Dairy </Link>
+                    <Link className='font' to={'/products?category=frozen'}>  Frozen</Link>
+                    <Link className='font' to={'/products?category=poultary'}>  Poultary</Link>
+                    <Link className='font' to={'/stores'}> Stores</Link>
                 </div>
 
                 <div className="text-[#FFFFFF] flex flex-col   space-y-4 pl-5">
 
-                    <a href={'/privacy_policy'} className='font'>Privacy Policy</a>
-                    <a href={'/return_policy'} className='font'>Return Policy</a>
-                    <a href={'shipping_policy'} className='font'>Shipping Policy</a>
-                    <a href={'/terms'} className='font'>Terms Of Service</a>
-                    <a className='font' href={'/faq'}>FAQ</a>
-                    <a href={'/account/ctons'} className='font'>Coupons</a>
-                    <a href={'/shop_regitotion'} className='flex space-x-2 justify-self-start'>
-                        <img src={Mask} alt="" /> <h4>PARTNER WITH US</h4> </a>
+                    <Link to={'/privacy_policy'} className='font'>Privacy Policy</Link>
+                    <Link to={'/return_policy'} className='font'>Return Policy</Link>
+                    <Link to={'shipping_policy'} className='font'>Shipping Policy</Link>
+                    <Link to={'/terms'} className='font'>Terms Of Service</Link>
+                    <Link className='font' to={'/faq'}>FAQ</Link>
+                    <Link to={'/account/ctons'} className='font'>Coupons</Link>
+                    <Link to={'/shop_registration'} className='flex space-x-2 justify-self-start'>
+                        <img src={Mask} alt="" /> <h4>PARTNER WITH US</h4> </Link>
                 </div>
 
 
             </div>
 
             <div className='flex justify-center space-x-10 mt-2'>
-                <a href={'https://www.linkdin.com'}><Linkidin /></a>
-                <a href={'https://www.facebook.com'}><Facebook /></a>
-                <a href={'https://www.instagram.com'}><Insta /></a>
-                <a href={'https://www.twitter.com'}><Tw /></a>
+                <Link to={'https://www.linkdin.com'}><Linkidin /></Link>
+                <Link to={'https://www.facebook.com'}><Facebook /></Link>
+                <Link to={'https://www.instagram.com'}><Insta /></Link>
+                <Link to={'https://www.twitter.com'}><Tw /></Link>
                 {/* <Link><Whatsapp /></Link> */}
             </div>
 

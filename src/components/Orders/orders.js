@@ -3,6 +3,7 @@ import { ReactComponent as Down } from '../../assests/down.svg'
 import { useQuery, useIsFetching } from '@tanstack/react-query'
 import { formatDate } from '../../helpers/helper_function'
 import Spinner from '../Spinner'
+import { Link } from 'react-router-dom'
 
 
 export default function Orders() {
@@ -29,7 +30,7 @@ export default function Orders() {
         return <h2>Some Error Occured whle Fetching</h2>
     }
 
-    console.log(OrderData)
+    // console.log(OrderData)
 
 
     return (<>
@@ -87,7 +88,7 @@ export default function Orders() {
                                 </div>
 
                                 <div className='flex flex-col space-y-10'>
-                                    <button className='bg-[#58B310] px-3 py-[2px] text-white rounded'>Track Order</button>
+                                    <Link to='/account/myOrders/track' state={val} className='bg-[#58B310] px-3 py-[2px] text-white rounded'>Track Order</Link>
                                     <button className='bg-[#58B310] px-3 py-[2px] text-white rounded'>Edit Order</button>
                                 </div>
                             </div>

@@ -84,9 +84,9 @@ const Navbar = () => {
             <div className={styles.nav_row}>
                 <div className={styles.logo_container}>
 
-                    <Link to="/">
+                    <a href="/">
                         <img src={logoimg} alt="Logo not found" />
-                    </Link>
+                    </a>
                 </div>
                 <div className={styles.search}>
 

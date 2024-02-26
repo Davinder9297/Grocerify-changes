@@ -52,14 +52,14 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 2.8vh;
+  gap: 1vh;
   margin-block: 2vh;
 }
 .inputs > div {
   display: flex;
   flex-direction: column;
-  gap: 2.8vh;
-  margin-block: 2vh;
+  gap: 0.1vh;
+  margin-block: 1vh;
 }
 .inputs span {
   position: relative;
@@ -75,11 +75,11 @@
   /* margin-block: 2vh; */
 }
 
-.inputs input[type="text"] {
+.inputs input {
   height: 40px;
   width: 100%;
   border: none;
-
+  margin-top: 5px;
   box-shadow: 0px 6px 6px rgb(222, 214, 214);
   padding-left: 15px;
   font-size: 1.02rem;
@@ -117,29 +117,6 @@
   gap: 1.5rem;
 }
 
-input[type="radio"] {
-  --s: 1.35em; /* control the size */
-  --c: var(--primary); /* the active color */
-
-  height: var(--s);
-  aspect-ratio: 1;
-  border: calc(var(--s) / 8) solid #939393;
-  padding: calc(var(--s) / 8);
-  background: radial-gradient(farthest-side, var(--c) 94%, #0000) 50%/0 0
-    no-repeat content-box;
-  border-radius: 50%;
-  outline-offset: calc(var(--s) / 10);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  font-size: inherit;
-  transition: 0.3s;
-}
-input[type="radio"]:checked {
-  border-color: rgba(0, 0, 0, 0.696);
-  background-size: 100% 100%;
-}
 .submit {
   display: grid;
   place-items: center;

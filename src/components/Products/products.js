@@ -4,7 +4,7 @@ import styles from './products.module.css'
 import { Link } from 'react-router-dom'
 
 const Products = (data) => {
-    console.log(data.data)
+    // console.log(data.data)
     return (
         <>
             <div className={styles.products_main}>

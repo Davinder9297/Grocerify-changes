@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { ReactComponent as Loc } from '../../assests/location_green.svg'
 import { ReactComponent as Pay } from '../../assests/pay.svg'
 import { ReactComponent as Order } from '../../assests/order.svg'
@@ -9,11 +9,13 @@ import { BASE_URL_PRODUCTS } from '../../Api/api';
 import { Globalinfo } from '../../App';
 import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
+import CircularProgress from '@mui/joy/CircularProgress';
 export default function Checkout() {
-
+    const navigate = useNavigate()
     const { cartData, GetCart, wishListData, GetWishList, userDetail, getUserDetails } = useContext(Globalinfo)
 
     const [selectedAddress, setSelectedAddress] = useState(0);
+    const [btnLoader, setbtnLoader] = useState(false)
     const [subtotal, setsubtotal] = useState()
     const [totalitems, settotalitems] = useState()
     const [paymentType, setpaymentType] = useState();
@@ -51,6 +53,7 @@ export default function Checkout() {
 
     const createOrder = async (val) => {
         // console.log("value", val)
+        setbtnLoader(true)
         try {
             const res = await axios.post(`${BASE_URL_PRODUCTS}api/order`,
                 {
@@ -68,9 +71,11 @@ export default function Checkout() {
                 }
             })
             console.log(res)
+            setbtnLoader(false)
             toast.success("Order Placed Successfully");
+            navigate('/success')
         } catch (error) {
-
+            setbtnLoader(false)
             toast.error("An Error Occured");
         }
     }
@@ -192,7 +197,8 @@ export default function Checkout() {
 
                 <button className='my-10 flex fontorder bg-[#426B1F] text-white items-center w-full  rounded-lg justify-around h-10 font-semibold '>
                     <div onClick={handleOrder}>
-                        {paymentType === 'cod' ? "Place Order" : "Continue to payments"}
+                        {btnLoader ? <CircularProgress size="sm" color="success" /> : (paymentType === 'cod' ? "Place Order" : "Continue to payments")}
+
                     </div>
 
                 </button>

@@ -6,16 +6,20 @@ import { FaPlus } from "react-icons/fa6";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import './product.css'
-import { useEffect, useRef, useState } from 'react'
-
+import { useEffect, useRef, useState, useContext } from 'react'
+import toast, { Toaster } from 'react-hot-toast';
 import { BASE_URL_PRODUCTS } from '../../Api/api';
 import { Link } from 'react-router-dom';
 import ReactImageMagnify from 'react-image-magnify';
 import ReactPlayer from 'react-player';
 import { useParams } from 'react-router-dom';
+import { Globalinfo } from '../../App';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Product() {
+    const navigate = useNavigate();
+    const { cartData, GetCart, wishListData, GetWishList, userDetail, getUserDetails } = useContext(Globalinfo)
     const params = useParams();
     // console.log(params)
     // console.log(window.location)
@@ -83,6 +87,48 @@ const [store, setstore] = useState([])
         }
     }
 
+    async function Addtocart() {
+        let id = Data._id;
+        try {
+            let url = BASE_URL_PRODUCTS + 'api/addtocart'
+            let bodydata = { mobile: userDetail?.mobile, productid: id }
+            const data = await fetch(url, {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(bodydata)
+            });
+            toast.success("Added to Cart")
+            GetCart()
+        } catch (error) {
+            console.log(error)
+            toast.error('An Error Occured')
+        }
+
+
+    }
+    const handleBuy = async () => {
+        let id = Data._id;
+        try {
+            let url = BASE_URL_PRODUCTS + 'api/addtocart'
+            let bodydata = { mobile: userDetail?.mobile, productid: id }
+            const data = await fetch(url, {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(bodydata)
+            });
+            const response = await data.json()
+            console.log(response)
+            if (response.success) {
+                GetCart()
+                navigate('/checkout')
+
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error('An Error Occured')
+        }
+    }
+
     return (<>
         {/* <Extra /> */}
 
@@ -136,9 +182,9 @@ const [store, setstore] = useState([])
                                 width: "100%",
                             }}
                         >
-                            <SplideSlide className='flex justify-center items-center  bg-[#f3f3f3]'>
+                            {/* <SplideSlide className='flex justify-center items-center  bg-[#f3f3f3]'>
                                 <img className='max-h-full mix-blend-multiply max-w-full' src={image} />
-                            </SplideSlide>
+                            </SplideSlide> */}
                             {
                                 images.map((item) => {
                                     // console.log()
@@ -199,8 +245,8 @@ const [store, setstore] = useState([])
                         incl. of taxes (Also includes all applicable duties)
                     </div>
                     <div className='flex w-full justify-between '>
-                        <button className='bg-[#58B310] px-4 py-1 rounded text-white text-[16px]'>Add To Cart</button>
-                        <button className='bg-[#58B310] px-4 py-1 rounded text-white text-[16px]'>Buy Now</button>
+                        <button className='bg-[#58B310] px-4 py-1 rounded text-white text-[16px]' onClick={Addtocart} >Add To Cart</button>
+                        <button className='bg-[#58B310] px-4 py-1 rounded text-white text-[16px]' onClick={handleBuy}>Buy Now</button>
                     </div>
                 </div>
 
@@ -515,5 +561,6 @@ const [store, setstore] = useState([])
 
             </div>
         </div>
+        <Toaster />
     </>)
 }

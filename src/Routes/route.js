@@ -30,12 +30,17 @@ import LoginAndSecurity from '../components/Account/login&security';
 import Checkout from '../components/Checkout/index'
 import Editaddress from '../components/Address/EditAddress';
 import ChatBot from '../components/chatbot/chatbot';
+import StoreProduct from '../components/Stores/storeDetail/StoreProduct';
+import StoreDetails from '../components/Stores/storeDetail';
+import ScrollToTop from '../components/scrollToTop';
+import Success from '../components/Success/success';
+import ProductDetails from '../components/Track_order/OrderProduct';
 
 const Router = () => {
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+
+
+
 
 
     return (
@@ -43,7 +48,8 @@ const Router = () => {
 
 
 
-            <BrowserRouter>
+            <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
+                <ScrollToTop />
                 <Navbar />
                 <NavList />
                 <Routes>
@@ -122,9 +128,16 @@ const Router = () => {
                     <Route exact path={'/checkout'} element={<Checkout />}>
 
                     </Route>
-                    {/* <Route exact path={'/chats'} element={<ChatBot />}>
+                    <Route exact path={'/view_store'} element={<StoreDetails />}>
 
-                    </Route> */}
+                    </Route>
+                    <Route exact path={'/success'} element={<Success />}>
+
+                    </Route>
+                    <Route exact path={'/account/myOrders/track'} element={<ProductDetails/>}>
+
+                    </Route>
+
                 </Routes>
                 <ChatBot />
                 <Footer />

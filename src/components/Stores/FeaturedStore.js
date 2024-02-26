@@ -206,7 +206,7 @@ const FeaturedStore = () => {
                             <div className="flex flex-row justify-between font-Gorditas text-[#848484] text-lg pt-1 pb-1 pl-10 pr-10 hover:bg-[#58B310] hover:text-[#FFFFFF]">
                                 <p>FEATURED STORE</p>
                                 <p>
-                                    <Link to={"/morestore"}>
+                                    <Link to={"/view_store"}>
                                         Show More <span className="cursor-pointer">&#9660;</span>
                                     </Link>
                                 </p>
@@ -214,7 +214,7 @@ const FeaturedStore = () => {
 
                             <div className="grid grid-cols-2 gap-3 p-4">
                                 <div className="relative group">
-                                    <Link to={"/morestore"}>
+                                    <Link to={"/view_store"}>
                                         <img
                                             src="../assests/images/chandigarhstore.svg"
                                             className="w-full group-hover:brightness-50 transition-all duration-300"
@@ -236,7 +236,7 @@ const FeaturedStore = () => {
                                 </div>
 
                                 <div className="relative group">
-                                    <Link to={"/morestore"}>
+                                    <Link to={"/view_store"}>
                                         <img
                                             src="../assests/images/ramgrocery.png"
                                             className="w-full group-hover:brightness-50 transition-all duration-300"
@@ -282,7 +282,7 @@ const FeaturedStore = () => {
                                 <p>TOP RATED STORE</p>
                                 <p>
                                     {" "}
-                                    <Link to={"/morestore"}>
+                                    <Link to={"/view_store"}>
                                         Show More <span className="cursor-pointer">&#9660;</span>
                                     </Link>
                                 </p>
@@ -290,7 +290,7 @@ const FeaturedStore = () => {
                             <div className="p-4">
                                 <ReactOwlCarousel {...options}>
                                     <div className="relative group mr-3">
-                                        <Link to={"/morestore"}>
+                                        <Link to={"/view_store"}>
                                             <img
                                                 src="../assests/images/chandigarhstore.svg"
                                                 className="w-full group-hover:brightness-50 transition-all duration-300"
@@ -311,7 +311,7 @@ const FeaturedStore = () => {
                                         </Link>
                                     </div>
                                     <div className="relative group mr-3">
-                                        <Link to={"/morestore"}>
+                                        <Link to={"/view_store"}>
                                             <img
                                                 src="../assests/images/ramgrocery.png"
                                                 className="w-full group-hover:brightness-50 transition-all duration-300"
@@ -332,7 +332,7 @@ const FeaturedStore = () => {
                                         </Link>
                                     </div>
                                     <div className="relative group mr-3">
-                                        <Link to={"/morestore"}>
+                                        <Link to={"/view_store"}>
                                             <img
                                                 src="../assests/images/chandigarhstore.svg"
                                                 className="w-full group-hover:brightness-50 transition-all duration-300"
@@ -353,7 +353,7 @@ const FeaturedStore = () => {
                                         </Link>
                                     </div>
                                     <div className="relative group mr-3">
-                                        <Link to={"/morestore"}>
+                                        <Link to={"/view_store"}>
                                             <img
                                                 src="../assests/images/ramgrocery.png"
                                                 className="w-full group-hover:brightness-50 transition-all duration-300"
@@ -374,7 +374,7 @@ const FeaturedStore = () => {
                                         </Link>
                                     </div>
                                     <div className="relative group mr-3">
-                                        <Link to={"/morestore"}>
+                                        <Link to={"/view_store"}>
                                             <img
                                                 src="../assests/images/chandigarhstore.svg"
                                                 className="w-full group-hover:brightness-50 transition-all duration-300"
