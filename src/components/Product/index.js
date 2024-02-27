@@ -218,7 +218,6 @@ const [store, setstore] = useState([])
                             }
                             <SplideSlide className='flex justify-center items-center  bg-[#f3f3f3]'>
                                 <ReactPlayer loop controls={false} url={video} />
-
                             </SplideSlide>
                         </Splide>
 
@@ -387,7 +386,7 @@ const [store, setstore] = useState([])
                    
                     {
                         store.length>0 && store.map((item)=>{
-                            console.log(item)
+                            // console.log(item)
                             return(<>
                             <div className='flex rounded-lg w-full border bg-[#FAFAF5] py-4 space-x-5 px-3 mt-4'>
                         <div className=' flex items-center justify-center relative'>
@@ -395,7 +394,7 @@ const [store, setstore] = useState([])
                                 <div className='text-[10px]'>20%</div>
                                 <div className='text-[8px]'>off</div>
                             </div>
-                            <img className='max-h-52 max-w-32' src={item.product_primary_image_url} />
+                            <img className='max-h-52 max-w-32' src={item.shop_primary_image_url} />
 
                         </div>
                         <div className='flex flex-col w-full fontmont text-[#848484]'>
